@@ -1,0 +1,7 @@
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      spacing="10" alignment="CENTER"
+      fx:controller="nl.group9.java9.dashboard.salesmenpie.SalesMenPieController">
+    <PieChart fx:id="salesMenPie" title="Revenue by Salesman"/>
+</VBox>

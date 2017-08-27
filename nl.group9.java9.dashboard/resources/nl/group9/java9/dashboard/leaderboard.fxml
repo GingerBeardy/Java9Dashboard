@@ -1,0 +1,22 @@
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      spacing="10" alignment="CENTER"
+      fx:controller="nl.group9.java9.dashboard.leaderboard.LeaderboardController">
+    <TableView fx:id="topConsultants" prefHeight="1000">
+        <columns>
+            <TableColumn text="Consultant" prefWidth="300">
+                <cellValueFactory>
+                    <PropertyValueFactory property="consultant"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Revenue" prefWidth="180">
+                <cellValueFactory>
+                    <PropertyValueFactory property="revenue"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>
