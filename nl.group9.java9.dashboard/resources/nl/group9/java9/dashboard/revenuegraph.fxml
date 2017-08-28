@@ -1,0 +1,16 @@
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml"
+      spacing="10" alignment="CENTER"
+      fx:controller="nl.group9.java9.dashboard.revenuegraph.RevenueChartController">
+    <LineChart fx:id="revenueOverTime" title="Revenue Over Time" prefHeight="600" legendVisible="false">
+        <xAxis>
+            <CategoryAxis label="Minute" animated="false"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" label="Euro" minorTickVisible="false"/>
+        </yAxis>
+    </LineChart>
+</VBox>
