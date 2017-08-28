@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 import static java.time.LocalTime.now;
 
@@ -22,14 +21,17 @@ public class RevenueChartData implements SalesObserver {
         int nowMinute = LocalDateTime.now().getMinute();
 
         // create an empty bar for every minute for the next ten minutes
-        IntStream.range(nowMinute, nowMinute + 10)
-                .forEach(this::initialiseBarToZero);
+        this.initialiseBarToZero(nowMinute);
     }
 
     @Override
     public void onSalesUpdate(List<Sale> sales) {
-        int x = now().getMinute();
-        Integer dataIndex = minuteToDataPosition.get(x);
+        int now = now().getMinute();
+        if (!minuteToDataPosition.containsKey(now)) {
+            initialiseBarToZero(now);
+        }
+
+        Integer dataIndex = minuteToDataPosition.get(now);
 
         Map<Integer, Integer> aggregatedSalesPerMinute = new HashMap<>();
         for (Sale s : sales) {
@@ -42,7 +44,7 @@ public class RevenueChartData implements SalesObserver {
         }
 
         Data<String, Double> barForNow = dataSeries.getData().get(dataIndex);
-        barForNow.setYValue(Double.valueOf(aggregatedSalesPerMinute.get(x)));
+        barForNow.setYValue(Double.valueOf(aggregatedSalesPerMinute.get(now)));
     }
 
     public XYChart.Series<String, Double> getDataSeries() {
