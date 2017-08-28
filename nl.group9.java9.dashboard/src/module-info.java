@@ -14,4 +14,6 @@ module nl.group9.java9.dashboard {
     opens nl.group9.java9.dashboard.leaderboard;
     exports nl.group9.java9.dashboard.salesmenpie;
     opens nl.group9.java9.dashboard.salesmenpie;
+    exports nl.group9.java9.dashboard.revenuegraph;
+    opens nl.group9.java9.dashboard.revenuegraph;
 }

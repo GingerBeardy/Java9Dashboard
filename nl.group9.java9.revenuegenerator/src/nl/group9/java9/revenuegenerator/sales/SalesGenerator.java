@@ -19,23 +19,23 @@ class SalesGenerator {
 
     Sale generateSale() {
         return new Sale(
-                this.genereateSalesMan(),
-                this.genereateConsultant(),
-                this.genereateCustomer(),
+                this.generateSalesMan(),
+                this.generateConsultant(),
+                this.generateCustomer(),
                 this.generateRevenue(),
                 LocalTime.now()
         );
     }
 
-    private String genereateSalesMan() {
+    private String generateSalesMan() {
         return this.salesMen.get(random.nextInt(salesMen.size()));
     }
 
-    private String genereateConsultant() {
+    private String generateConsultant() {
         return this.consultants.get(random.nextInt(consultants.size()));
     }
 
-    private String genereateCustomer() {
+    private String generateCustomer() {
         return this.customers.get(random.nextInt(customers.size()));
     }
 

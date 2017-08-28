@@ -1,4 +1,4 @@
-package nl.group9.java9.dashboard.observer;
+package nl.group9.java9.dashboard.observable;
 
 import nl.group9.java9.api.domain.Sale;
 import nl.group9.java9.service.client.SalesClient;
@@ -7,14 +7,14 @@ import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RunnableSalesObserver implements Runnable {
+public class RunnableSalesObservable implements Runnable {
 
     private List<Sale> sales;
-    private List<SalesListener> salesListeners;
+    private List<SalesObserver> salesObservers;
     private SalesClient salesClient;
 
-    public RunnableSalesObserver() throws URISyntaxException {
-        this.salesListeners = new LinkedList<>();
+    public RunnableSalesObservable() throws URISyntaxException {
+        this.salesObservers = new LinkedList<>();
         this.salesClient = new SalesClient();
     }
 
@@ -26,11 +26,11 @@ public class RunnableSalesObserver implements Runnable {
     public void run() {
         this.sales = this.salesClient.getSales();
         if (sales.size() > 1) {
-            this.salesListeners.forEach(salesListener -> salesListener.onSalesUpdate(sales));
+            this.salesObservers.forEach(salesObserver -> salesObserver.onSalesUpdate(sales));
         }
     }
 
-    public void registerSalesListener(SalesListener salesListener) {
-        this.salesListeners.add(salesListener);
+    public void registerSalesListener(SalesObserver salesObserver) {
+        this.salesObservers.add(salesObserver);
     }
 }

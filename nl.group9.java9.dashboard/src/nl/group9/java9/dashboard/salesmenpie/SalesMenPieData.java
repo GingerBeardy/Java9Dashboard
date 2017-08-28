@@ -3,7 +3,7 @@ package nl.group9.java9.dashboard.salesmenpie;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
 import nl.group9.java9.api.domain.Sale;
-import nl.group9.java9.dashboard.observer.SalesListener;
+import nl.group9.java9.dashboard.observable.SalesObserver;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
-public class SalesMenPieData implements SalesListener {
+public class SalesMenPieData implements SalesObserver {
 
     private final PieChart.Data robPortion = new PieChart.Data("Rob", 0);
     private final PieChart.Data basPortion = new PieChart.Data("Bas", 0);

@@ -5,7 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import nl.group9.java9.dashboard.leaderboard.LeaderboardData;
-import nl.group9.java9.dashboard.observer.RunnableSalesObserver;
+import nl.group9.java9.dashboard.observable.RunnableSalesObservable;
+import nl.group9.java9.dashboard.revenuegraph.RevenueChartData;
 import nl.group9.java9.dashboard.salesmenpie.SalesMenPieData;
 
 import java.util.concurrent.Executors;
@@ -16,11 +17,13 @@ public class DashboardMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        RunnableSalesObserver observer = new RunnableSalesObserver();
+        RunnableSalesObservable observer = new RunnableSalesObservable();
         LeaderboardData leaderboardData = new LeaderboardData();
         SalesMenPieData salesMenPieData = new SalesMenPieData();
+        RevenueChartData revenueChartData = new RevenueChartData();
         observer.registerSalesListener(leaderboardData);
         observer.registerSalesListener(salesMenPieData);
+        observer.registerSalesListener(revenueChartData);
 
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         scheduler.scheduleAtFixedRate(observer, 0, 1000, TimeUnit.MILLISECONDS);
@@ -35,6 +38,7 @@ public class DashboardMain extends Application {
         DashboardController dashboardController = loader.getController();
         dashboardController.getLeaderboardController().setData(leaderboardData);
         dashboardController.getSalesMenPieController().setData(salesMenPieData);
+        dashboardController.getRevenueChartController().setData(revenueChartData);
 
         // let's go!
         primaryStage.setScene(scene);

@@ -4,7 +4,7 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import nl.group9.java9.api.domain.Sale;
-import nl.group9.java9.dashboard.observer.SalesListener;
+import nl.group9.java9.dashboard.observable.SalesObserver;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class LeaderboardData implements SalesListener {
+public class LeaderboardData implements SalesObserver {
 
     private static final int NUMBER_OF_LEADERS = 20;
 
