@@ -5,6 +5,9 @@ import nl.group9.java9.dashboard.leaderboard.LeaderboardController;
 import nl.group9.java9.dashboard.revenuegraph.RevenueChartController;
 import nl.group9.java9.dashboard.salesmenpie.SalesMenPieController;
 
+/**
+ * Controller for JavaFX
+ */
 public class DashboardController {
 
     @FXML

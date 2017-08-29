@@ -6,6 +6,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The Revenue Generator Module will randomly generate sales at fixed interval and post them to the Service.
+ */
 public class RevenueGeneratorMain {
 
     public static void main(String[] args) throws Exception {

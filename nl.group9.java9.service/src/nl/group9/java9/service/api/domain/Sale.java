@@ -2,6 +2,9 @@ package nl.group9.java9.service.api.domain;
 
 import java.time.LocalTime;
 
+/**
+ * Represents a single sale.
+ */
 public class Sale {
 
     private String salesMan;

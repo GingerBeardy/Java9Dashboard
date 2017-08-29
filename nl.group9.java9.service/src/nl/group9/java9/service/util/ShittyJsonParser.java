@@ -34,6 +34,13 @@ public class ShittyJsonParser {
         return parsedJsonMap;
     }
 
+    /**
+     * Tries to parse a JSON Array to a List.
+     * It only parses array's.
+     *
+     * @param jsonString The String to parse.
+     * @return A List, which in turn contains Maps that in turn contains the parsed field names as key.
+     */
     static public List<Map<String, String>> parseArrayOfSimpleJsonObjects(String jsonString) {
         // First split on end of object
         String[] jsonObjectStrings = jsonString.split("}");

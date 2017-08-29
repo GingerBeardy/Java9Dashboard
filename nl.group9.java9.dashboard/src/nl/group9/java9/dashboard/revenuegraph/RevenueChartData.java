@@ -12,27 +12,29 @@ import java.util.Map;
 
 import static java.time.LocalTime.now;
 
+/**
+ * RevenueChartData contains logic to transform the retrieved list of sales to a data for a Graph with total revenue per minute.
+ */
 public class RevenueChartData implements SalesObserver {
     private final XYChart.Series<String, Double> dataSeries = new XYChart.Series<>();
     private final Map<Integer, Integer> minuteToDataPosition = new HashMap<>();
 
     public RevenueChartData() {
-        // get minute value for right now
-        int nowMinute = LocalDateTime.now().getMinute();
-
-        // create an empty bar for every minute for the next ten minutes
-        this.initialiseBarToZero(nowMinute);
+        // The first point on the graph is initialized to 0
+        int previousMinute = LocalDateTime.now().getMinute() - 1;
+        this.initialiseBarToZero(previousMinute);
     }
 
     @Override
     public void onSalesUpdate(List<Sale> sales) {
         int now = now().getMinute();
         if (!minuteToDataPosition.containsKey(now)) {
-            initialiseBarToZero(now);
+            this.initialiseBarToZero(now);
         }
 
         Integer dataIndex = minuteToDataPosition.get(now);
 
+        // possible TODO: convert to a stream?
         Map<Integer, Integer> aggregatedSalesPerMinute = new HashMap<>();
         for (Sale s : sales) {
             int minute = s.getTimeOfSale().getMinute();
@@ -43,7 +45,7 @@ public class RevenueChartData implements SalesObserver {
             aggregatedSalesPerMinute.put(minute, Math.toIntExact(Math.round(sum)));
         }
 
-        Data<String, Double> barForNow = dataSeries.getData().get(dataIndex);
+        Data<String, Double> barForNow = this.dataSeries.getData().get(dataIndex);
         barForNow.setYValue(Double.valueOf(aggregatedSalesPerMinute.get(now)));
     }
 
@@ -52,8 +54,8 @@ public class RevenueChartData implements SalesObserver {
     }
 
     private void initialiseBarToZero(int minute) {
-        dataSeries.getData().add(new Data<>(String.valueOf(minute), 0.0));
-        minuteToDataPosition.put(minute, dataSeries.getData().size() - 1);
+        this.dataSeries.getData().add(new Data<>(String.valueOf(minute), 0.0));
+        this.minuteToDataPosition.put(minute, dataSeries.getData().size() - 1);
     }
 }
 

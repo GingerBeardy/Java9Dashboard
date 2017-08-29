@@ -13,34 +13,38 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * The Dashboard Module retrieves the total list of Sales from the Service, calculates some statistics, and displays them.
+ */
 public class DashboardMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        RunnableSalesObservable observer = new RunnableSalesObservable();
+        // Initialize the observable and observers
+        RunnableSalesObservable observable = new RunnableSalesObservable();
         LeaderboardData leaderboardData = new LeaderboardData();
         SalesMenPieData salesMenPieData = new SalesMenPieData();
         RevenueChartData revenueChartData = new RevenueChartData();
-        observer.registerSalesListener(leaderboardData);
-        observer.registerSalesListener(salesMenPieData);
-        observer.registerSalesListener(revenueChartData);
+        observable.registerSalesListener(leaderboardData);
+        observable.registerSalesListener(salesMenPieData);
+        observable.registerSalesListener(revenueChartData);
 
+        // Let the observable retrieve data at fixed interval
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        scheduler.scheduleAtFixedRate(observer, 0, 1000, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(observable, 0, 1000, TimeUnit.MILLISECONDS);
 
-        // initialise the UI
+        // Initialise the UI
         FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
         primaryStage.setTitle("GROUP9 Dashboard");
         Scene scene = new Scene(loader.load(), 1024, 1024);
         scene.getStylesheets().add("dashboard.css");
 
-        // wire up the models to the controllers
+        // Wire up the models to the controllers
         DashboardController dashboardController = loader.getController();
         dashboardController.getLeaderboardController().setData(leaderboardData);
         dashboardController.getSalesMenPieController().setData(salesMenPieData);
         dashboardController.getRevenueChartController().setData(revenueChartData);
 
-        // let's go!
         primaryStage.setScene(scene);
         primaryStage.show();
     }

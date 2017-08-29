@@ -4,13 +4,16 @@ import com.sun.net.httpserver.HttpExchange;
 import nl.group9.java9.service.api.Paths;
 import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.service.datastorage.DataStore;
-import nl.group9.java9.service.util.InputStreamMapper;
+import nl.group9.java9.service.util.SaleMapper;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * SaleHandler is a controller for {@link Sale}s.
+ */
 public class SaleHandler extends AbstractHandler {
 
     private static final String SAVED_SALE_MSG = "POST: Successfully saved sale: ";
@@ -29,7 +32,7 @@ public class SaleHandler extends AbstractHandler {
     }
 
     void onPost(HttpExchange exchange) throws IOException {
-        Sale sale = InputStreamMapper.retrieveSaleFromInputStream(exchange.getRequestBody());
+        Sale sale = SaleMapper.retrieveSaleFromInputStream(exchange.getRequestBody());
 
         dataStore.saveSale(sale);
         logger.log(Level.INFO, SAVED_SALE_MSG + sale.toString());

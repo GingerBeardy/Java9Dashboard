@@ -3,21 +3,13 @@
 }
 
 .default-color0.chart-pie {
-    -fx-pie-color: red;
+    -fx-pie-color: #003450;
 }
 
 .default-color1.chart-pie {
-    -fx-pie-color: green;
+    -fx-pie-color: #e43e32;
 }
 
 .default-color2.chart-pie {
     -fx-pie-color: yellow;
-}
-
-.default-color0.chart-bar {
-    -fx-bar-fill: green;
-}
-
-.default-color0.chart-bar {
-    -fx-bar-fill: green;
 }

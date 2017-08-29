@@ -5,6 +5,9 @@ import nl.group9.java9.service.client.SalesClient;
 
 import java.net.URISyntaxException;
 
+/**
+ * Invokes the {@link SalesGenerator} and posts the resulting Sale.
+ */
 public class SalesRunnable implements Runnable {
 
     private SalesClient salesClient;

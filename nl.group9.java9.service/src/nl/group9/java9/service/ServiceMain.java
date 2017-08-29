@@ -9,6 +9,9 @@ import nl.group9.java9.service.handlers.SaleHandler;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 
+/**
+ * The Service Module is a HttpServer that accepts single Sales and sends out all saved Sales on request.
+ */
 public class ServiceMain {
 
     public static void main(String[] args) throws IOException {

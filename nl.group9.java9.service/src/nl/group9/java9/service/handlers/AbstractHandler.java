@@ -9,6 +9,9 @@ import java.io.OutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * AbstractHandler provides a template for a {@link HttpHandler} for the GET and POST methods
+ */
 abstract class AbstractHandler implements HttpHandler {
     static final int STATUS_OK = 200;
     static final int STATUS_CREATED = 201;

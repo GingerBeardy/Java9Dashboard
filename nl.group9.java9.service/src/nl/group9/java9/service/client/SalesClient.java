@@ -6,7 +6,7 @@ import jdk.incubator.http.HttpResponse;
 import nl.group9.java9.service.api.Config;
 import nl.group9.java9.service.api.Paths;
 import nl.group9.java9.service.api.domain.Sale;
-import nl.group9.java9.service.util.InputStreamMapper;
+import nl.group9.java9.service.util.SaleMapper;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * A simple client that can be used to POST a {@link Sale} to the Service, or to GET all sales
+ */
 public class SalesClient {
 
     private static final Logger logger = Logger.getGlobal();
@@ -34,7 +37,6 @@ public class SalesClient {
                     .POST(HttpRequest.BodyProcessor.fromString(sale.toString()))
                     .build();
             HttpResponse<String> response = this.client.send(request, HttpResponse.BodyHandler.discard(null));
-            logger.log(Level.INFO, "Result POST sale: " + response.statusCode());
         } catch (Exception e) {
             logger.log(Level.INFO, "Couldn't post sales: " + e.getLocalizedMessage());
         }
@@ -49,7 +51,7 @@ public class SalesClient {
                     .GET()
                     .build();
             HttpResponse<String> response = this.client.send(request, HttpResponse.BodyHandler.asString());
-            sales = InputStreamMapper.retrieveSalesListFromString(response.body());
+            sales = SaleMapper.retrieveSalesListFromString(response.body());
             logger.log(Level.INFO, "Result GET sales: " + response.statusCode() + " - " + sales);
             return sales;
         } catch (Exception e) {

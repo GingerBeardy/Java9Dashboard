@@ -12,6 +12,9 @@ import java.util.stream.Collectors;
 
 import static javafx.collections.FXCollections.observableArrayList;
 
+/**
+ * SalesMenPieData contains logic to transform the retrieved list of sales to a data for a Pie Chart with total revenue per Salesman.
+ */
 public class SalesMenPieData implements SalesObserver {
 
     private final PieChart.Data robPortion = new PieChart.Data("Rob", 0);

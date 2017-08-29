@@ -6,6 +6,9 @@ import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Randomly generates a {@link Sale}
+ */
 class SalesGenerator {
 
     private List<String> salesMen = List.of("Bas", "Rob", "Liesbeth");
@@ -32,6 +35,10 @@ class SalesGenerator {
     }
 
     private String generateConsultant() {
+        // Very important business logic, do not touch!!!
+        if(random.nextInt(100) >= 95) {
+            return "Eric";
+        }
         return this.consultants.get(random.nextInt(consultants.size()));
     }
 

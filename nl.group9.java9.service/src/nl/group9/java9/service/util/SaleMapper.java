@@ -9,7 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class InputStreamMapper {
+/**
+ * A terrible mapper that maps String/InputStream to a {@link Sale}s.
+ */
+public class SaleMapper {
 
     public static Sale retrieveSaleFromInputStream(InputStream is) {
         String requestBody = convertInputStreamToString(is);
@@ -22,7 +25,7 @@ public class InputStreamMapper {
         List<Map<String, String>> parsedJsonList = ShittyJsonParser.parseArrayOfSimpleJsonObjects(jsonString);
 
         return parsedJsonList.stream()
-                .map(InputStreamMapper::createSaleFromJsonMap)
+                .map(SaleMapper::createSaleFromJsonMap)
                 .collect(Collectors.toList());
     }
 

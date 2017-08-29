@@ -7,6 +7,9 @@ import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Gets list of Sales from the service, and notifies observers.
+ */
 public class RunnableSalesObservable implements Runnable {
 
     private List<Sale> sales;

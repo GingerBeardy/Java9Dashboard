@@ -15,9 +15,12 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * LeaderBoardData contains logic to transform the retrieved list of sales to a ranked list of consultants, ordered by total revenue.
+ */
 public class LeaderboardData implements SalesObserver {
 
-    private static final int NUMBER_OF_LEADERS = 20;
+    private static final int NUMBER_OF_LEADERS = 18;
 
     private ObservableList<Sale> consultants;
 

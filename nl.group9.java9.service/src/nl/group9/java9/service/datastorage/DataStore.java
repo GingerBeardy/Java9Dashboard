@@ -5,6 +5,9 @@ import nl.group9.java9.service.api.domain.Sale;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * DataStore holds all posted Sales.
+ */
 public class DataStore {
 
     private List<Sale> sales = new LinkedList<>();

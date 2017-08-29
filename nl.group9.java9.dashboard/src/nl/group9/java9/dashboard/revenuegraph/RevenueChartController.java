@@ -12,6 +12,9 @@ import java.util.ResourceBundle;
 import static java.lang.Integer.valueOf;
 import static java.lang.String.format;
 
+/**
+ * Controller for JavaFX
+ */
 public class RevenueChartController implements Initializable {
 
     @FXML
