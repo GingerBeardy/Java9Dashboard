@@ -1,6 +1,6 @@
 package nl.group9.java9.dashboard.observable;
 
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.service.client.SalesClient;
 
 import java.net.URISyntaxException;

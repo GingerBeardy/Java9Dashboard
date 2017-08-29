@@ -1,6 +1,6 @@
 package nl.group9.java9.service.datastorage;
 
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 
 import java.util.LinkedList;
 import java.util.List;

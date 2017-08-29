@@ -1,8 +1,8 @@
 package nl.group9.java9.service;
 
 import com.sun.net.httpserver.HttpServer;
-import nl.group9.java9.api.Config;
-import nl.group9.java9.api.Paths;
+import nl.group9.java9.service.api.Config;
+import nl.group9.java9.service.api.Paths;
 import nl.group9.java9.service.datastorage.DataStore;
 import nl.group9.java9.service.handlers.SaleHandler;
 

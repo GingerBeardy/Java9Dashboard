@@ -2,7 +2,7 @@ package nl.group9.java9.dashboard.salesmenpie;
 
 import javafx.collections.ObservableList;
 import javafx.scene.chart.PieChart;
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.dashboard.observable.SalesObserver;
 
 import java.util.List;

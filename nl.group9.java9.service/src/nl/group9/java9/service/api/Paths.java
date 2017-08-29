@@ -1,4 +1,4 @@
-package nl.group9.java9.api;
+package nl.group9.java9.service.api;
 
 /**
  * Declares the endpoints

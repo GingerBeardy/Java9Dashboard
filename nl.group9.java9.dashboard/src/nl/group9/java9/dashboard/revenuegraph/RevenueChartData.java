@@ -2,7 +2,7 @@ package nl.group9.java9.dashboard.revenuegraph;
 
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.dashboard.observable.SalesObserver;
 
 import java.time.LocalDateTime;

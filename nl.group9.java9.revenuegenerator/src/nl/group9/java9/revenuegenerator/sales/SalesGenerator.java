@@ -1,6 +1,6 @@
 package nl.group9.java9.revenuegenerator.sales;
 
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 
 import java.time.LocalTime;
 import java.util.List;

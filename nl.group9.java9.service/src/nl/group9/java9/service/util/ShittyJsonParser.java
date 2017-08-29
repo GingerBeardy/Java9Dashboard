@@ -1,4 +1,4 @@
-package nl.group9.java9.util.impl;
+package nl.group9.java9.service.util;
 
 import java.util.*;
 import java.util.stream.Collectors;

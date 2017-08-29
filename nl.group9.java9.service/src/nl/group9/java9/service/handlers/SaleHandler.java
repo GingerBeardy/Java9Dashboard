@@ -1,10 +1,10 @@
 package nl.group9.java9.service.handlers;
 
 import com.sun.net.httpserver.HttpExchange;
-import nl.group9.java9.api.Paths;
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.Paths;
+import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.service.datastorage.DataStore;
-import nl.group9.java9.util.InputStreamMapper;
+import nl.group9.java9.service.util.InputStreamMapper;
 
 import java.io.IOException;
 import java.util.List;

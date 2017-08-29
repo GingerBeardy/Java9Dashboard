@@ -3,7 +3,7 @@ package nl.group9.java9.dashboard.leaderboard;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import nl.group9.java9.api.domain.Sale;
+import nl.group9.java9.service.api.domain.Sale;
 import nl.group9.java9.dashboard.observable.SalesObserver;
 
 import java.util.Comparator;

@@ -3,10 +3,10 @@ package nl.group9.java9.service.client;
 import jdk.incubator.http.HttpClient;
 import jdk.incubator.http.HttpRequest;
 import jdk.incubator.http.HttpResponse;
-import nl.group9.java9.api.Config;
-import nl.group9.java9.api.Paths;
-import nl.group9.java9.api.domain.Sale;
-import nl.group9.java9.util.InputStreamMapper;
+import nl.group9.java9.service.api.Config;
+import nl.group9.java9.service.api.Paths;
+import nl.group9.java9.service.api.domain.Sale;
+import nl.group9.java9.service.util.InputStreamMapper;
 
 import java.net.URI;
 import java.net.URISyntaxException;

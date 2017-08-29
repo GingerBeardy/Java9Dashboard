@@ -1,8 +1,7 @@
-package nl.group9.java9.util;
+package nl.group9.java9.service.util;
 
 
-import nl.group9.java9.api.domain.Sale;
-import nl.group9.java9.util.impl.ShittyJsonParser;
+import nl.group9.java9.service.api.domain.Sale;
 
 import java.io.InputStream;
 import java.time.LocalTime;

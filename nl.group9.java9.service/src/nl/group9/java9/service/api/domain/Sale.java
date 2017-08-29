@@ -1,4 +1,4 @@
-package nl.group9.java9.api.domain;
+package nl.group9.java9.service.api.domain;
 
 import java.time.LocalTime;
 
